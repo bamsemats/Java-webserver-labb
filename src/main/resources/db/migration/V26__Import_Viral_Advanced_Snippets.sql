@@ -26,7 +26,7 @@ template<> struct Fib<1> { enum { val = 1 }; };', 'C++', 'Advanced', TRUE, (SELE
 
 ('Rust: Zero-Cost Abstraction Example', 'A trait-based design that compiles away.', 'trait Sound { fn make(&self); }
 struct Dog;
-impl Sound for Dog { fn make(&self) { /* noop */ } }
+impl Sound for Sound { fn make(&self) { /* noop */ } }
 fn static_dispatch<T: Sound>(t: T) { t.make(); }', 'Rust', 'Advanced', TRUE, (SELECT id FROM users WHERE username = 'admin'), CURRENT_TIMESTAMP),
 
 ('SQL: The "Delete Duplicates" Trick', 'Removing duplicate rows while keeping the one with lowest ID.', 'DELETE FROM users WHERE id NOT IN (
