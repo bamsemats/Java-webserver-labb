@@ -36,6 +36,7 @@ public class SnippetMapper {
         dto.setLanguage(entity.getLanguage());
         dto.setCategory(entity.getCategory());
         dto.setCreatedAt(entity.getCreatedAt());
+        dto.setPublic(entity.isPublic());
         return dto;
     }
 }

@@ -10,9 +10,9 @@ public class SnippetDTO {
     private String language;
     private String category;
     private LocalDateTime createdAt;
+    private boolean isPublic;
 
-    public SnippetDTO() {}
-
+    // Getters and Setters
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
     public String getTitle() { return title; }
@@ -27,4 +27,6 @@ public class SnippetDTO {
     public void setCategory(String category) { this.category = category; }
     public LocalDateTime getCreatedAt() { return createdAt; }
     public void setCreatedAt(LocalDateTime createdAt) { this.createdAt = createdAt; }
+    public boolean isPublic() { return isPublic; }
+    public void setPublic(boolean isPublic) { this.isPublic = isPublic; }
 }

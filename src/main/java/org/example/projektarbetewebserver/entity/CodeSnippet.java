@@ -15,15 +15,17 @@ public class CodeSnippet {
     private Long id;
 
     @NotBlank(message = "Title is required")
-    @Size(max = 100, message = "Title must be less than 100 characters")
+    @Size(max = 100, message = "Title must not exceed 100 characters")
+    @Column(nullable = false, length = 100, columnDefinition = "text")
     private String title;
 
     @NotBlank(message = "Description is required")
-    @Size(max = 500, message = "Description must be less than 500 characters")
+    @Size(max = 500, message = "Description must not exceed 500 characters")
+    @Column(nullable = false, length = 500, columnDefinition = "text")
     private String description;
 
     @NotBlank(message = "Code content is required")
-    @Lob
+    @Column(nullable = false, columnDefinition = "text")
     private String content;
 
     private LocalDateTime createdAt;
@@ -33,6 +35,12 @@ public class CodeSnippet {
 
     @NotBlank(message = "Category is required")
     private String category;
+
+    private boolean isPublic = false;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
+    private User user;
 
     public CodeSnippet() {}
 
@@ -56,4 +64,8 @@ public class CodeSnippet {
     public void setLanguage(String language) { this.language = language; }
     public String getCategory() { return category; }
     public void setCategory(String category) { this.category = category; }
+    public boolean isPublic() { return isPublic; }
+    public void setPublic(boolean isPublic) { this.isPublic = isPublic; }
+    public User getUser() { return user; }
+    public void setUser(User user) { this.user = user; }
 }
